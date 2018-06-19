@@ -1,3 +1,13 @@
+// Randm Integer Inclusive function, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random//
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+
+function checkCollisions(){
+  };
+
 // Enemies our player must avoid
 class Enemy {
   constructor() {
@@ -6,18 +16,28 @@ class Enemy {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.x = 0;
-    this.y = 10;
+    this.x = 0
+    this.y = getRandom(0,230);
+    this.speed = getRandom(40,600);
     this.sprite = 'images/enemy-bug.png';
   }
   render () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
   };
 
-
+  reset () {
+    this.x = 0;
+  }
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
   update (dt) {
+    if (this.x>-20) {
+    this.x += this.speed*dt;
+  }
+    if (this.x>=460) {
+      this.y=getRandom(0,230);
+      this.x=-19;
+    }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -32,29 +52,31 @@ class Enemy {
 // Now write your own player class
 class Hero {
   constructor() {
-    this.x = 100;
+    this.x = 200;
     this.y = 400;
     this.sprite = 'images/char-boy.png';
   }
   update (dt) {
+    this.speed = 20;
   }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-  handleInput(keydown) {
-    switch(keydown) {
+  handleInput(dt) {
+    switch(dt) {
       case 'left':
-      this.x --;
+      this.x -=this.speed;
       break;
       case 'right':
-      this.x ++;
+      this.x +=this.speed;
       break;
       case 'up':
-      this.y --;
+      this.y -=this.speed;
       break;
       case 'down':
-      this.y ++;
+      this.y +=this.speed;
       break;
+
       default:
       break;
     }
@@ -66,6 +88,8 @@ class Hero {
 
 // Now instantiate your objects.
 let allEnemies = [new Enemy];
+setTimeout(function(){allEnemies.push(new Enemy)},1000);
+setTimeout(function(){allEnemies.push(new Enemy)},2000);
 const player = new Hero();
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
