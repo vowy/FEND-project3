@@ -1,3 +1,5 @@
+
+let collision = false;
 // Randm Integer Inclusive function, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random//
 function getRandom(min, max) {
   min = Math.ceil(min);
@@ -7,15 +9,13 @@ function getRandom(min, max) {
 // Enemies our player must avoid
 class Enemy {
   constructor() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    this.height = 40;
+    this.width = 80;
     this.x = 0
     this.y = getRandom(0,230);
     this.speed = getRandom(40,600);
     this.sprite = 'images/enemy-bug.png';
+
   }
   render () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
@@ -32,7 +32,15 @@ class Enemy {
       this.x=-19;
     }
 
+for (var i = 0; i < allEnemies.length; i++) {
 
+    if (allEnemies[i].y < player.y + player.height &&
+        allEnemies[i].y + allEnemies[i].height > player.y &&
+        allEnemies[i].x < player.x + player.width &&
+        allEnemies[i].width + allEnemies[i].x > player.x) {
+    return collision = true;
+  }
+}
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -47,16 +55,28 @@ class Enemy {
 // Now write your own player class
 class Hero {
   constructor() {
+    this.height = 40;
+    this.width = 45;
     this.x = 200;
     this.y = 400;
     this.sprite = 'images/char-boy.png';
   }
-  update (dt) {
+  update () {
     this.speed = 20;
+    if (collision === true) {
+      this.x = 200;
+      this.y = 400;
+      return collision = false;
+    }
+   if (this.y < 0) {
+     alert('YOU WON!!! POP A BENNY')
+   }
   }
+
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
+
   handleInput(dt) {
     switch(dt) {
       case 'left':
