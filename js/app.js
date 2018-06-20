@@ -1,11 +1,12 @@
 
-let collision = false;
+let enemyCollision = false;
 // Randm Integer Inclusive function, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random//
 function getRandom(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
 }
+
 // Enemies our player must avoid
 class Enemy {
   constructor() {
@@ -38,7 +39,7 @@ for (var i = 0; i < allEnemies.length; i++) {
         allEnemies[i].y + allEnemies[i].height > player.y &&
         allEnemies[i].x < player.x + player.width &&
         allEnemies[i].width + allEnemies[i].x > player.x) {
-    return collision = true;
+    return enemyCollision = true;
   }
 }
     // You should multiply any movement by the dt parameter
@@ -59,17 +60,23 @@ class Hero {
     this.width = 45;
     this.x = 200;
     this.y = 400;
+    this.life = 3;
     this.sprite = 'images/char-boy.png';
   }
   update () {
     this.speed = 20;
-    if (collision === true) {
+    if (enemyCollision === true) {
       this.x = 200;
       this.y = 400;
-      return collision = false;
+      this.life --;
+      return enemyCollision = false;
     }
    if (this.y < 0) {
      alert('YOU WON!!! POP A BENNY')
+   }
+   if (this.life === 0) {
+     alert('You Lose :(')
+     location.reload();
    }
   }
 
@@ -97,8 +104,6 @@ class Hero {
     }
   }
 };
-// This class requires an update(), render() and
-// a handleInput() method.
 
 
 // Now instantiate your objects.
@@ -106,6 +111,7 @@ let allEnemies = [new Enemy];
 setTimeout(function(){allEnemies.push(new Enemy)},1000);
 setTimeout(function(){allEnemies.push(new Enemy)},2000);
 const player = new Hero();
+
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
