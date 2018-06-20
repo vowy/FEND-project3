@@ -4,10 +4,6 @@ function getRandom(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
 }
-
-function checkCollisions(){
-  };
-
 // Enemies our player must avoid
 class Enemy {
   constructor() {
@@ -25,9 +21,6 @@ class Enemy {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
   };
 
-  reset () {
-    this.x = 0;
-  }
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
   update (dt) {
@@ -38,6 +31,8 @@ class Enemy {
       this.y=getRandom(0,230);
       this.x=-19;
     }
+
+
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
