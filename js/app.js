@@ -1,3 +1,13 @@
+/**
+*  This is FEND project 3 - Frogger Clone
+*  by Eric Parsons
+*  e.b.parsons@gmail.com
+*  vowy @ GitHub
+*
+*  Use arrow keys to move the character to the water. Avoid the enemies (Bugs).
+*
+*/
+
 
 let enemyCollision = false;
 

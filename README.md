@@ -7,6 +7,11 @@ by Eric Parsons
 
 This is the third project in Udacity.com's Front-End Web Developer (FEND) nano degree program.
 
+## How to Run the game
+
+Download the .zip file
+Open the file 'index.html' in a browser of your choice.
+
 ## How to Play
 
 Use the directional keys (up,down,left,and right) to navigate your character to the water. Watch out for enemies (bugs) as they will make the user go back to the starting point.
