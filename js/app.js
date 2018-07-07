@@ -72,6 +72,7 @@ class Hero {
     this.width = 45;
     this.x = 200;
     this.y = 400;
+
     this.sprite = 'images/char-boy.png';
   }
   update () {
