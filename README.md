@@ -2,6 +2,8 @@
 
 by Eric Parsons
 
+GitHub pages: [link] (https://vowy.github.io/FEND-project3/)
+
 
 ## Introduction
 
@@ -10,6 +12,7 @@ This is the third project in Udacity.com's Front-End Web Developer (FEND) nano d
 ## How to Run the game
 
 Download the .zip file
+
 Open the file 'index.html' in a browser of your choice.
 
 ## How to Play
