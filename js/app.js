@@ -72,7 +72,6 @@ class Hero {
     this.width = 45;
     this.x = 200;
     this.y = 400;
-    this.life = 3;
     this.sprite = 'images/char-boy.png';
   }
   update () {
@@ -85,6 +84,8 @@ class Hero {
     //win condition
    if (this.y < 0) {
      alert('YOU WON!!!')
+     location.reload();
+     return;
    }
   }
 
