@@ -2,7 +2,7 @@
 
 by Eric Parsons
 
-GitHub pages: [link] (https://vowy.github.io/FEND-project3/)
+GitHub pages: [link](https://vowy.github.io/FEND-project3/)
 
 
 ## Introduction
