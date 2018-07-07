@@ -24,12 +24,20 @@ Enjoy!
 ## Versions
 
 ### June 19, 2018
-Current Version: v0.5 (BETA)
+Current Version: v1.0
+
+-Changed lose/win condition
+
+-Updated README.md
+
+Previous Versions:
+
+v0.5 (BETA)
 
 -Collision detection added
 
 -Win condition added, lose condition added (Player has 3 lives)
 
-Previous Version: v0.25 (BETA)
+v0.25 (BETA)
 
 -NOTE: All functionality is not available. Game is unfinished!
