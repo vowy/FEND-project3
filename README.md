@@ -7,7 +7,7 @@ GitHub pages: [link](https://vowy.github.io/FEND-project3/)
 
 ## Introduction
 
-This is the third project in Udacity.com's Front-End Web Developer (FEND) nano degree program.
+This is the third project in [Udacity.com](https://udacity.com)'s Front-End Web Developer (FEND) nano degree program.
 
 ## How to Run the game
 
